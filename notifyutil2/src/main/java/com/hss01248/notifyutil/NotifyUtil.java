@@ -89,5 +89,17 @@ public class NotifyUtil {
         return pi;
     }
 
+    public static void cancel(int id){
+        if(nm!=null){
+            nm.cancel(id);
+        }
+    }
+
+    public static void cancelAll(){
+        if(nm!=null){
+            nm.cancelAll();
+        }
+    }
+
 
 }

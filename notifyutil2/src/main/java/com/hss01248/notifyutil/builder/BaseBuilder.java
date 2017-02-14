@@ -2,6 +2,7 @@ package com.hss01248.notifyutil.builder;
 
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
@@ -40,10 +41,17 @@ public class BaseBuilder {
     public int onMs;
     public int offMs;
 
-    public int defaults = 0;//默认提醒
+    public int defaults = NotificationCompat.DEFAULT_LIGHTS;//默认只有走马灯提醒
     public  boolean sound = true;
    public boolean vibrate = true;
    public boolean lights = true;
+
+    public BaseBuilder setLockScreenVisiablity(int lockScreenVisiablity) {
+        this.lockScreenVisiablity = lockScreenVisiablity;
+        return this;
+    }
+
+    public int lockScreenVisiablity = NotificationCompat.VISIBILITY_SECRET;
 
 
 
@@ -109,8 +117,8 @@ public class BaseBuilder {
 
 
 
-    public BaseBuilder setBase(int smallIcon,CharSequence contentTitle,CharSequence contentText){
-        this.smallIcon = smallIcon;
+    public BaseBuilder setBase(int icon,CharSequence contentTitle,CharSequence contentText){
+        this.smallIcon = icon;
         this.contentTitle = contentTitle;
         this.contentText = contentText;
         return this;
@@ -146,6 +154,10 @@ public class BaseBuilder {
         this.fullscreenIntent  = fullscreenIntent;
         return this;
     }
+    public BaseBuilder setSmallIcon(int smallIcon){
+        this.smallIcon = smallIcon;
+        return this;
+    }
     public BaseBuilder setBigIcon(int bigIcon){
         this.bigIcon = bigIcon;
         return this;
@@ -174,7 +186,14 @@ public class BaseBuilder {
     public void build(){
         cBuilder = new NotificationCompat.Builder(NotifyUtil.context);
         cBuilder.setContentIntent(contentIntent);// 该通知要启动的Intent
-        cBuilder.setSmallIcon(smallIcon);// 设置顶部状态栏的小图标
+
+        if(smallIcon >0){
+            cBuilder.setSmallIcon(smallIcon);// 设置顶部状态栏的小图标
+        }
+        if(bigIcon >0){
+            cBuilder.setLargeIcon(BitmapFactory.decodeResource(NotifyUtil.context.getResources(), bigIcon));
+        }
+
         cBuilder.setTicker(ticker);// 在顶部状态栏中的提示信息
 
         cBuilder.setContentTitle(contentTitle);// 设置通知中心的标题
@@ -224,12 +243,16 @@ public class BaseBuilder {
         if(headup){
             cBuilder.setPriority(NotificationCompat.PRIORITY_MAX);
             cBuilder.setDefaults(NotificationCompat.DEFAULT_ALL);
+        }else {
+            cBuilder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+            cBuilder.setDefaults(NotificationCompat.DEFAULT_LIGHTS);
         }
         if(TextUtils.isEmpty(ticker)){
             cBuilder.setTicker("你有新的消息");
         }
         cBuilder.setOngoing(onGoing);
         cBuilder.setFullScreenIntent(fullscreenIntent,true);
+        cBuilder.setVisibility(lockScreenVisiablity);
 
     }
 

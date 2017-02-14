@@ -13,20 +13,20 @@ public static void init(Context appContext)
 
 
 
-## 第一步
+## 第一步:
 
 ```
-buildSimple(int id,int smallIcon,CharSequence contentTitle ,CharSequence contentText,PendingIntent contentIntent)
+buildSimple(int id,int icon,CharSequence contentTitle ,CharSequence contentText,PendingIntent contentIntent)
   
-buildProgress(int id,int smallIcon,CharSequence contentTitle,int progress,int max)
+buildProgress(int id,int icon,CharSequence contentTitle,int progress,int max)
  
- buildBigPic(int id,int smallIcon,CharSequence contentTitle,CharSequence contentText,CharSequence summaryText)
+ buildBigPic(int id,int icon,CharSequence contentTitle,CharSequence contentText,CharSequence summaryText)
  
- buildBigText(int id,int smallIcon,CharSequence contentTitle,CharSequence contentText)
+ buildBigText(int id,int icon,CharSequence contentTitle,CharSequence contentText)
  
- buildMailBox(int id,int smallIcon,CharSequence contentTitle)
+ buildMailBox(int id,int icon,CharSequence contentTitle)
  
- buildMedia(int id,int smallIcon,CharSequence contentTitle,CharSequence contentText)
+ buildMedia(int id,int icon,CharSequence contentTitle,CharSequence contentText)
   
 ```
 
@@ -45,23 +45,38 @@ addBtn(int icon,CharSequence text,PendingIntent pendingIntent)
 setHeadup()
 //提示语
 setTicker(CharSequence ticker)
-//大图标
+//大小图标
+setSamllIcon(int smallIcon)
 setBigIcon(int bigIcon)
-//优先级
+//优先级,默认为default
 setPriority(int priority)
-//是否为不可删除
+//设置成为不可删除
 setOnGoing()
 //提示模式
 setAction(boolean sound, boolean vibrate, boolean lights)
 //是否为前台服务的notification
 setForgroundService() 
+//锁屏显示的控制(默认不显示)
+setLockScreenVisiablity(int lockScreenVisiablity)
+  VISIBILITY_PRIVATE : 显示基本信息，如通知的图标，但隐藏通知的全部内容 
+  VISIBILITY_PUBLIC : 显示通知的全部内容 
+  VISIBILITY_SECRET : 不显示任何内容，包括图标
+```
+
+## 第三步
+
+```
+.show()
 ```
 
 
 
+ ## 取消
 
-
- 
+```
+cancel(int id)
+cancelAll()
+```
 
 # 使用
 
