@@ -2,7 +2,27 @@
 
 notification工具类,最简化api
 
+# 示例图
 
+
+
+ ![simple-bigpic](image/simple-bigpic.jpg)
+
+
+
+ ![progress](image/progress.jpg)
+
+
+
+ ![bigtext](image/bigtext.jpg)
+
+
+
+ ![mailbox](image/mailbox.jpg)
+
+
+
+ ![headup](image/headup.jpg)
 
 # API
 
@@ -27,7 +47,7 @@ buildProgress(int id,int icon,CharSequence contentTitle,int progress,int max)
  
  buildMailBox(int id,int icon,CharSequence contentTitle)
  
- buildMedia(int id,int icon,CharSequence contentTitle,CharSequence contentText)
+// buildMedia(int id,int icon,CharSequence contentTitle,CharSequence contentText)//todo 
   
 ```
 

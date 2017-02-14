@@ -29,7 +29,7 @@ public class BaseBuilder {
     public int id;
 
     public int bigIcon;
-    public CharSequence ticker;
+    public CharSequence ticker = "您有新的消息";
 
     public CharSequence subText;
     public int flag = NotificationCompat.FLAG_AUTO_CANCEL;
