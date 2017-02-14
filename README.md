@@ -1,11 +1,12 @@
-# PageManager
+# NotifyUtil
+
 notification工具类,最简化api
 
 
 
 # API
 
-## BaseApplication里的初始化
+## Application里的初始化
 
 ```
 public static void init(Context appContext)
@@ -32,6 +33,12 @@ buildProgress(int id,int icon,CharSequence contentTitle,int progress,int max)
 
 ## 第二步:其他可选设置
 
+默认情况下:
+
+只有呼吸灯提示
+
+
+
 ```
 设置三类intent:
 
@@ -41,9 +48,9 @@ setFullScreenIntent(PendingIntent fullscreenIntent)
 
 添加按钮:
 addBtn(int icon,CharSequence text,PendingIntent pendingIntent)
-设置head-up模式
+开启head-up模式
 setHeadup()
-//提示语
+//提示语,默认为"您有新的消息"
 setTicker(CharSequence ticker)
 //大小图标
 setSamllIcon(int smallIcon)
@@ -52,9 +59,9 @@ setBigIcon(int bigIcon)
 setPriority(int priority)
 //设置成为不可删除
 setOnGoing()
-//提示模式
+//提示模式:默认情况下只有呼吸灯提示
 setAction(boolean sound, boolean vibrate, boolean lights)
-//是否为前台服务的notification
+//设置为前台服务的notification
 setForgroundService() 
 //锁屏显示的控制(默认不显示)
 setLockScreenVisiablity(int lockScreenVisiablity)
