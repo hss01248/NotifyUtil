@@ -39,7 +39,8 @@ public static void init(Context appContext)
 ```
 buildSimple(int id,int icon,CharSequence contentTitle ,CharSequence contentText,PendingIntent contentIntent)
   
-buildProgress(int id,int icon,CharSequence contentTitle,int progress,int max)
+buildProgress(int id,int icon,CharSequence contentTitle,int progress,int max,String format)
+//format参考: 百分比模式: 下载进度:%d%%, 两数据模式: 下载进度:%d/%d
  
  buildBigPic(int id,int icon,CharSequence contentTitle,CharSequence contentText,CharSequence summaryText)
  
@@ -145,7 +146,7 @@ NotifyUtil.buildBigPic(101,R.drawable.timg,"title","content","summmaujds")
                         .setPicRes(R.drawable.timg2)
                         .show();
                         
- NotifyUtil.buildProgress(102,R.mipmap.ic_launcher,"正在下载",progresses,100).show();
+ NotifyUtil.buildProgress(102,R.mipmap.ic_launcher,"正在下载",progresses,3456,"下载进度:%d%%").show();
  
  NotifyUtil.buildMailBox(104,R.drawable.timg,"title")
                         .addMsg("11111111111")
