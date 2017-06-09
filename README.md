@@ -127,7 +127,7 @@ Add it in your root build.gradle at the end of repositories:
 
 ```
     dependencies {
-            compile 'com.github.hss01248:NotifyUtil:1.0.0'
+            compile 'com.github.hss01248:NotifyUtil:1.0.1'
     }
 ```
 
