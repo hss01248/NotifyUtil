@@ -40,6 +40,7 @@ public class NotifyUtil {
         return builder;
     }
 
+    @Deprecated
     public static ProgressBuilder buildProgress(int id,int smallIcon,CharSequence contentTitle,int progress,int max){
         ProgressBuilder builder = new ProgressBuilder();
         builder.setBase(smallIcon,contentTitle,progress+"/"+max)
@@ -47,6 +48,15 @@ public class NotifyUtil {
         builder.setProgress(max,progress,false);
         return builder;
     }
+
+    public static ProgressBuilder buildProgress(int id,int smallIcon,CharSequence contentTitle,int progress,int max,String format){
+        ProgressBuilder builder = new ProgressBuilder();
+        builder.setBase(smallIcon,contentTitle,progress+"/"+max)
+                .setId(id);
+        builder.setProgressAndFormat(progress,max,false,format);
+        return builder;
+    }
+
     public static BigPicBuilder buildBigPic(int id,int smallIcon,CharSequence contentTitle,CharSequence contentText,CharSequence summaryText){
         BigPicBuilder builder = new BigPicBuilder();
         builder.setBase(smallIcon,contentTitle,contentText).setId(id);
@@ -71,9 +81,7 @@ public class NotifyUtil {
     }
     /*public static CustomViewBuilder buildCustomView(BigPicBuilder builder){
 
-    }
-
-    */
+    }*/
 
     public static void notify(int id,Notification notification){
 

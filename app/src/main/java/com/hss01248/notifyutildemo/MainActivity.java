@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 progresses = progresses +10;
-                NotifyUtil.buildProgress(102,R.mipmap.ic_launcher,"正在下载",progresses,100).show();
+
+                NotifyUtil.buildProgress(102,R.mipmap.ic_launcher,"正在下载",progresses,100,"下载进度:%dkb/%dkb").show();//"下载进度:%d%%"
                 showProgress();
 
             }
