@@ -164,4 +164,7 @@ NotifyUtil.buildBigText(103,R.drawable.timg,"jtitle","我学习最快的方法�
 ```
 
 
-认定该
+# todo
+* 参考[网易考拉 Android 通知栏适配全方案](https://www.jianshu.com/p/9bf70d125582)进行完善
+* 适配Android O
+* 增加权限判断
